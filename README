@@ -10,7 +10,11 @@
         pip install -r requirements.txt
 
 3. run and testing
+    run during development 
+        export FLASK_APP=morning_world
+        export FLASK_ENV=development
         flask run
+    testing
 
 4. deploy to remote
         # using google cloud 
