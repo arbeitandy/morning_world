@@ -1,22 +1,36 @@
-1. clone the source code
-    git clone git@github.com:arbeitandy/hello_world.git
+Morning World
+=============
 
-2. prepare local dev environment
+Install
+-------
+
+    get the source code (for now everything is in master branch)
+        git clone git@github.com:arbeitandy/morning_world.git
+
     create new virtualenv for development
-        python3 -m virutualenv hello_world_dev
+        python3 -m virutualenv morning_world_venv
         source env/bin/activate
+
     install dependencies
-        cd hello_world
+        cd morning_world
         pip install -r requirements.txt
 
-3. run and testing
+Run and Test
+------------
     run during development 
         export FLASK_APP=morning_world
         export FLASK_ENV=development
         flask run
+
+    run as in production
+        export FLASK_APP=morning_world
+        export FLASK_ENV=production
+        flask run   # or use production cgi handler
+
     testing
+        pytest
 
-4. deploy to remote
-        # using google cloud 
+Deploy
+------
+    # using google cloud 
         gcloud app deploy
-
