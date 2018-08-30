@@ -1,9 +1,8 @@
 from flask import Flask
 from flask import request
-from flask import json
+from flask import jsonify
 import os
 import logging
-from flask.logging import default_handler
 
 
 def create_app(test_config=None):
@@ -23,7 +22,7 @@ def create_app(test_config=None):
 
 
     @app.route('/')
-    def morning_world():
+    def root_path():
         """
             1. request header without Accept
                output: hello world
@@ -38,12 +37,8 @@ def create_app(test_config=None):
         if request.headers['Accept'] != 'application/json':
             return PLAIN_MSG
         else:
-            response = Response(
-                                json.dumps(JSON_MSG),
-                                status=200,
-                                mimetype='application/json'
-                                )
-            return response
+            return jsonify(JSON_MSG), 200
 
 
-        return app
+    return app
+

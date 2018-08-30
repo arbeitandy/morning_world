@@ -7,4 +7,4 @@ handlers:
 - url: /static
   static_dir: static
 - url: /.*
-  script: morning_world.app
+  script: morning_world
