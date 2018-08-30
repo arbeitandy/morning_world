@@ -3,7 +3,15 @@ from flask import request
 from flask import json
 from flask import Response
 
+import logging
+from flask.logging import default_handler
+
 app = Flask(__name__)
+app.config.from_pyfile('config.py')
+logging.basicConfig(filename='error.log', level=logging.DEBUG)
+# LOGGER = logging.getLogger(__name__)
+
+
 
 @app.route('/')
 def hello_world():
@@ -18,17 +26,16 @@ def hello_world():
     PLAIN_MSG = '<p>Hello World<p>'
     JSON_MSG = {'message': 'Good morning'}
 
-    if not request.headers['Accept']:
+    if request.headers['Accept'] != 'application/json':
         return PLAIN_MSG
-    elif request.headers['Accept'] == 'application/json':           
+    else:
+        # request.headers['Accept'] == 'application/json':           
         response = Response(
                             json.dumps(JSON_MSG),
                             status=200,
                             mimetype='application/json'
                             )
         return response
-    else:
-        pass
 
 
 if __name__ == '__main__':

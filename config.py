@@ -1,1 +1,2 @@
-# Flask's config
+TESTING=True
+DEBUG=True
