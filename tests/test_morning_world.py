@@ -1,7 +1,8 @@
 import os
 import tempfile
 import pytest
-#from morning_world import morning_world
+
+from morning_world import morning_world
 
 
 @pytest.fixture

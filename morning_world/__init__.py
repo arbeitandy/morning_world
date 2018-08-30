@@ -31,7 +31,7 @@ def create_app(test_config=None):
             3. corner case: has "Accept" but not accept json
         """
 
-        PLAIN_MSG = '<p>Morning World<p>'
+        PLAIN_MSG = '<p>Morning World!</p>'
         JSON_MSG = {'message': 'Good morning'}
 
         if request.headers['Accept'] != 'application/json':
