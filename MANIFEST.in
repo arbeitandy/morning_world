@@ -1,0 +1,3 @@
+graft morning_world/static
+graft morning_world/templates
+global-exclude *.pyc
