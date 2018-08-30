@@ -1,0 +1,18 @@
+1. clone the source code
+    git clone git@github.com:arbeitandy/hello_world.git
+
+2. prepare local dev environment
+    create new virtualenv for development
+        python3 -m virutualenv hello_world_dev
+        source env/bin/activate
+    install dependencies
+        cd hello_world
+        pip install -r requirements.txt
+
+3. run and testing
+        flask run
+
+4. deploy to remote
+        # using google cloud 
+        gcloud app deploy
+
