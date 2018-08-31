@@ -1,6 +1,12 @@
 Morning World
 =============
 
+Summary
+-------
+
+    a sample endpoint framework to provide json or text response
+
+
 Install
 -------
 
@@ -15,22 +21,48 @@ Install
         cd morning_world
         pip install -r requirements.txt
 
+
 Run and Test
 ------------
-    run during development 
-        export FLASK_APP=morning_world
-        export FLASK_ENV=development
-        flask run
 
-    run as in production
-        export FLASK_APP=morning_world
-        export FLASK_ENV=production
-        flask run   # or use production cgi handler
+    1. set up environment
+        for development - with debug log in error.log
+        $ export FLASK_APP=morning_world
+        $ export FLASK_ENV=development
 
-    testing
-        pytest
+        for production - no debug log
+        $ export FLASK_APP=morning_world
+        $ export FLASK_ENV=production
+
+    2. run the app
+        $ flask run   # or use production cgi handler
+
+    3. testing
+        using curl 
+            1. start app as in development or in production
+                $ export FLASK_APP=morning_world
+                $ export FLASK_ENV=development
+                $ flask run
+            2. curl command to test on local server
+                - testing normal request
+                $ curl http://127.0.0.1:5000/
+                - testing normal bad request
+                $ curl http://127.0.0.1:5000/nothere
+                - testing json request
+                $ curl -H "Accept: application/json"  http://127.0.0.1:5000/
+                - testing json bad request
+                $ curl -H "Accept: application/json"  http://127.0.0.1:5000/nothere
+
+            3. run the testing framework - no need to use flask run
+                $ export FLASK_APP=morning_world
+                $ export FLASK_ENV=development
+                $ pytest
+
 
 Deploy
 ------
-    # using google cloud 
+
+    1. using google cloud 
         gcloud app deploy
+    2. using pip #TOFIX
+        pip install morning_world
