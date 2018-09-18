@@ -65,4 +65,4 @@ Deploy
     1. using google cloud 
         gcloud app deploy
     2. using pip #TOFIX
-        pip install morning_world
+        pip install --user morning_world
